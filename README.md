@@ -1,8 +1,7 @@
 ## API Takehome Challenge - Shipping 
 
-In many businesses, the final step of a process is delivery of goods.
-
 ### Context
+In many businesses, the final step of a process is delivery of goods.
 A generic flow might be the following:
 
 Orders can have multiple items, but items may not all be ready at the same time.
