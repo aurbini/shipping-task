@@ -16,7 +16,7 @@ You are to create an API to handle robust shipping with the following specificat
 
 - Orders
   - Each order will have a human readable customerId which is unique alphabetical code (e.g. Customer 'Astro Botic Commercia' will have id ABC)
-  - Orders consist of batches. Each batch will have: an item and a quantity
+  - Orders consist of batches. Each batch will have: an item, quantity, and due date (you can ignore due dates in this project but its provided for thoroughness)
 - Packages
   - A package consists of the following:
     - An identifying string (recommended: `<customer id>-PS<package #>`; e.g. ABC-PS1. You can use the method model.count provided by mongoose)
@@ -33,3 +33,5 @@ Shipments can be edited any time but once shipped, packages cannot be edited any
 The following endpoint(s) have been completed for you:
 - `/reset` Create a randomzied list of orders & items, some of which will be completed (i.e. ready to be packed and shipped). Run this at the start of a trial.
 
+### Required env vars
+`DB_URI` your mongoDB connection string. E.g. mongodb://localhost:27017/cp-shipping-task
