@@ -11,7 +11,7 @@ It is good practice to first create a package and try to get as many items into 
 A package should be shipped off before its due date with as many complete items as possible to reduce the number of overdue deliveries.
 
 ### Assignment
-You are to create an API to handle robust shipping with the following specifications:
+You are to create an API to handle a robust packing & shipping log with the following specifications:
 
 - Orders
   - Each order will have a human readable customerId which is unique alphabetical code (e.g. Customer 'Astro Botic Commercial' will have id ABC)
