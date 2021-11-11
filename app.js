@@ -27,6 +27,7 @@ const OrderModel = model('orders', new Schema({
     part: String,
     batch: Number,
     qty: Number,
+    readyToShip: Boolean,
   }]
 }));
 
@@ -71,8 +72,8 @@ async function resetAll(_req, res) {
         for (let j = 0; j <= randomInt(1, 4); j++) {
           const newItem = {
             part: `PN-0${j+1}`,
-            batch: 1,
-            qty: randomInt(1, 10)
+            qty: randomInt(1, 10),
+            readyToShip: Math.random() < 0.5
           };
 
           items.push(newItem);
@@ -120,4 +121,5 @@ async function resetAll(_req, res) {
 
     process.exit();
   }
+
 })();
