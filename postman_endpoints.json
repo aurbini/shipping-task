@@ -1,0 +1,248 @@
+{
+	"info": {
+		"_postman_id": "941d8167-18e6-4954-8e7d-5862a40374d2",
+		"name": "Packing & Shipping",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Packages",
+			"item": [
+				{
+					"name": "Get Queue",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/packages/queue",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"packages",
+								"queue"
+							]
+						},
+						"description": "## GET /packing/queue\n\nGet a list of batches that are ready to be packed and have not been all packed yet.\n\n**Note:** a batch included in any shipments should not be cleared from the queue until its entire quantity has been packaged."
+					},
+					"response": []
+				},
+				{
+					"name": "Get History",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/packages",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"packages"
+							]
+						},
+						"description": "## GET /packages\n\nGet a list of all packages that have ever been created."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Packing Slip",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/packages",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"packages"
+							]
+						},
+						"description": "## PUT /packages\n\nCreate a new package with the specified content.\n\n### Required fields:\n```\norder: String,\ncontent: [{\n  part: String,\n  qty: Number\n]}\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Packing Slip",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/packages",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"packages"
+							]
+						},
+						"description": "## PATCH /packages\n\nEdit a specified package with new content.\n\n### Required Fields:\n```\nid: String,\n\ncontent: [{\n  part: String,\n  qty: Number\n}]\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Packing Slip",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/packages",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"packages"
+							]
+						},
+						"description": "## DELETE /packages\n\nDelete a specified package.\n\n### Required Fields:\n`id: String`"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Shipments",
+			"item": [
+				{
+					"name": "Get Queue",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/shipments/queue",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"shipments",
+								"queue"
+							]
+						},
+						"description": "## GET /shipments/queue\n\nGet a list of created packages."
+					},
+					"response": []
+				},
+				{
+					"name": "Get History",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/shipments",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"shipments"
+							]
+						},
+						"description": "## GET /shipments\n\nGet a list of all shipments that have been created."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Shipment",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/shipments",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"shipments"
+							]
+						},
+						"description": "## PUT /shipments\n\nCreate a new shipment with the specified packages.\n\n### Required fields:\n```\nshipmentId: String,\npackagesInShipment: [] // refs to shipments\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Shipment",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/shipments",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"shipments"
+							]
+						},
+						"description": "## PATCH /shipments\n\nEdit a specified packing slip with new content.\n\n### Required Fields:\n```\nid: String,\npackagesInShipment: [] // refs to packages\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Shipment",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/shipments",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"shipments"
+							]
+						},
+						"description": "## DELETE /shipments\n\nDelete a specified shipment.\n\n### Required Fields:\n`id: String`"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reset",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/reset",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"reset"
+					]
+				},
+				"description": "## POST /reset\n\nClear any packing slips and shipments that have been generated and generate new random data."
+			},
+			"response": []
+		}
+	]
+}
