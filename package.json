@@ -8,7 +8,7 @@
     "mongoose": "^6.0.12"
   },
   "devDependencies": {
-    "nodeenv": "^3.0.71",
+    "dotenv": "^10.0.0",
     "nodemon": "^2.0.15"
   },
   "scripts": {
