@@ -57,11 +57,13 @@ async function resetAll(_req, res) {
   };
 
   try {
-    const ok = _dropCollection( OrderModel ) &&
-      _dropCollection( PackageModel ) &&
-      _dropCollection( ShipmentModel );
+    const ok = [
+      await _dropCollection( OrderModel ),
+      await _dropCollection( PackageModel ),
+      await _dropCollection( ShipmentModel )
+    ];
 
-    if (!ok) return res.status(500).send('Error dropping collections.');
+    if ( ok.some(x => !x) ) return res.status(500).send('Error dropping collections.');
 
     const promises = [];
     ['ABC', 'BCA', 'CAB'].map(customerId => {
