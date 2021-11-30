@@ -24,7 +24,9 @@
 								"queue"
 							]
 						},
-						"description": "## GET /packing/queue\n\nGet a list of batches that are ready to be packed and have not been all packed yet.\n\n**Note:** a batch included in any shipments should not be cleared from the queue until its entire quantity has been packaged."
+						"description": "## GET /packing/queue\n\nGet a list of
+						 batches that are ready to be packed and have not been all 
+						 packed yet.\n\n**Note:** a batch included in any shipments should not be cleared from the queue until its entire quantity has been packaged."
 					},
 					"response": []
 				},
